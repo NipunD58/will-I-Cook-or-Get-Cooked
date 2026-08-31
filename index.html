@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will I Cook or Get Cooked?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="faah-overlay" class="hidden">
+        <h1>FAAAH</h1>
+    </div>
+
+    <div class="background-mesh">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div id="realtime-clock">--:--:--</div>
+
+    <main class="container">
+        <div class="glass-card">
+            <header>
+                <h1>Will I <span>Cook</span> or Get <span>Cooked?</span></h1>
+                <p>Enter your exam details to predict your fate.</p>
+            </header>
+
+            <form id="fate-form">
+                <div class="input-group">
+                    <label for="subject">Subject Name</label>
+                    <input type="text" id="subject" placeholder="e.g. Advanced Mathematics" required>
+                </div>
+                
+                <div class="row">
+                    <div class="input-group">
+                        <label for="total-chapters">Total Chapters</label>
+                        <input type="number" id="total-chapters" min="1" placeholder="e.g. 10" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="completed-chapters">Chapters Done</label>
+                        <input type="number" id="completed-chapters" min="0" placeholder="e.g. 2" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="exam-time">Exam Date & Time</label>
+                    <input type="datetime-local" id="exam-time" required>
+                </div>
+
+                <div class="row">
+                    <div class="input-group">
+                        <label for="exam-weight">Difficulty (1-10)</label>
+                        <input type="number" id="exam-weight" min="1" max="10" value="5" placeholder="e.g. 5" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="sleep-sacrifice">Sleep to Sacrifice (hrs)</label>
+                        <input type="number" id="sleep-sacrifice" min="0" max="8" value="0" placeholder="e.g. 2" required>
+                    </div>
+                </div>
+
+                <button type="submit" id="predict-btn">Predict My Fate</button>
+            </form>
+
+            <div id="result-container" class="hidden">
+                <div class="result-header">
+                    <h2 id="result-title"></h2>
+                    <iframe id="result-gif" src="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+                </div>
+                <p id="result-message"></p>
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="stat-value" id="stat-time-left">-</span>
+                        <span class="stat-label">Study Hrs Left</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" id="stat-chapters-left">-</span>
+                        <span class="stat-label">Chapters Left</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" id="stat-pace">-</span>
+                        <span class="stat-label">Hours / Chapter</span>
+                    </div>
+                </div>
+                <button type="button" id="reset-btn" class="secondary-btn">Recalculate</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+</body>
+</html>
