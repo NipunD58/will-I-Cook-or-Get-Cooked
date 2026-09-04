@@ -78,20 +78,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const weightMultiplier = examWeight / 5;
         const effectivePace = pace / weightMultiplier;
 
-        if(effectivePace < 1) {
-            // Effective pace < 1 hour per chapter
+        if(effectivePace < 2) {
+            // Effective pace < 2 hours per chapter
             status = 'cooked';
             title = 'Absolutely COOKED.';
             message = `For ${subject} (Difficulty: ${examWeight}/10), you only have ${pace.toFixed(2)} real hours per chapter. Start praying and lock in IMMEDIATELY.`;
             gifUrl = 'https://giphy.com/embed/5h57daS09IInn3TB14'; // Elmo fire
-        } else if(effectivePace >= 1 && effectivePace < 3) {
-        // 1 to 3 hours per chapter effective
+        } else if(effectivePace >= 2 && effectivePace < 4) {
+        // 2 to 4 hours per chapter effective
         status = 'warning';
         title = 'Lightly Toasted';
         message = `It's gonna be tight for ${subject} (Difficulty: ${examWeight}/10). ${pace.toFixed(1)} hours per chapter is doable but you need zero distractions right now.`;
         gifUrl = 'https://giphy.com/embed/l4FATJpd4LWgeruTK'; // Sweating Jordan Peele
     } else {
-        // 3+ hours per chapter effective
+        // 4+ hours per chapter effective
         status = 'cook';
         title = 'You will COOK!';
         message = `Plenty of time for ${subject}! You have ${pace.toFixed(1)} hours per chapter. Stay consistent and you'll ace it.`;
@@ -119,7 +119,7 @@ form.style.display = 'none';
 resultContainer.classList.remove('hidden');
 
 // FAAAH Animation Trigger
-if (status === 'cooked') {
+if (status === 'cooked' || status === 'warning') {
     faahOverlay.classList.remove('hidden');
     faahSound.volume = 1.0; // Max volume
     faahSound.currentTime = 0;

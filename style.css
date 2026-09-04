@@ -385,3 +385,12 @@ button:active {
     font-variant-numeric: tabular-nums;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
+
+/* Footer Styles */
+.site-footer {
+    margin-top: 30px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    z-index: 10;
+}
